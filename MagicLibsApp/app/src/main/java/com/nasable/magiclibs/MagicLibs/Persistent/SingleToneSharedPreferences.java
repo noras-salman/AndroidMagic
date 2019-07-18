@@ -7,13 +7,11 @@ import android.content.SharedPreferences;
 
 public class SingleToneSharedPreferences {
 
-
-
     public static String DEFAULT_STRING=null;
     public static int DEFAULT_INT=-1;
     public static long DEFAULT_LONG=-1;
     public static float DEFAULT_FLOAT=-1;
-
+    public static boolean DEFAULT_BOOLEAN=false;
 
     private String APP_PREFERENCES = "SingleToneSharedPreferences" ;//BuildConfig.APPLICATION_ID;
     private Context context;
@@ -26,8 +24,25 @@ public class SingleToneSharedPreferences {
         this.editor = sharedpreferences.edit();
     }
 
+    public boolean getBool(String key){
+        return get(key,DEFAULT_BOOLEAN);
+    }
 
+    public int getInt(String key){
+        return get(key,DEFAULT_INT);
+    }
 
+    public String getString(String key){
+        return get(key,DEFAULT_STRING);
+    }
+
+    public float getFloat(String key){
+        return get(key,DEFAULT_FLOAT);
+    }
+
+    public float getLong(String key){
+        return get(key,DEFAULT_LONG);
+    }
 
     /** SDK Specification **/
 

@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.Map;
 
 
-
 /**
  * Created by noras on 2019-02-13.
  */
 
 public abstract class ModernRESTClient {
+
 
     private Cache cache;
     private Network network;
@@ -39,16 +39,23 @@ public abstract class ModernRESTClient {
     private Context context;
     private List<AdditionalHeader> additionalHeaders;
 
+    /**
+     *
+     * @param context
+     */
     ModernRESTClient(Context context) {
         this.context = context;
         cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024);
         network = new BasicNetwork(new HurlStack());
         queue = new RequestQueue(cache, network);
         queue.start();
-        additionalHeaders=new ArrayList<>();
+        additionalHeaders = new ArrayList<>();
     }
 
-    public class AdditionalHeader{
+    /**
+     *
+     */
+    public class AdditionalHeader {
         private String key;
         private String value;
 
@@ -66,53 +73,91 @@ public abstract class ModernRESTClient {
         }
     }
 
-    public void addHeaders(String key,String value){
-        additionalHeaders.add(new AdditionalHeader(key,value));
+    /**
+     *
+     * @param key
+     * @param value
+     */
+    public void addHeaders(String key, String value) {
+        additionalHeaders.add(new AdditionalHeader(key, value));
     }
 
-    public void addBasicAuthorization(String token){
-        additionalHeaders.add(new AdditionalHeader("Authorization","Basic "+token));
+    /**
+     *
+     * @param token
+     */
+    public void addBasicAuthorization(String token) {
+        additionalHeaders.add(new AdditionalHeader("Authorization", "Basic " + token));
     }
 
-    public static abstract class RequestListener {
-        public void onSuccess(JSONArray jsonArray) {
+    /**
+     *
+     */
+    public static class RequestListener {
+        
+        public interface OnRequestListener {
+            public void onError();
         }
 
-        ;
-
-        public void onSuccess(JSONObject jsonObject) {
+        public interface OnJSONArraySuccessListener extends OnRequestListener {
+            public void onSuccess(JSONArray jsonArray);
         }
 
-        ;
-
-        public void onSuccess(String responseString) {
+        public interface OnJSONObjectSuccessListener extends OnRequestListener {
+            public void onSuccess(JSONObject jsonArray);
         }
 
-        ;
+        public interface OnStringSuccessListener extends OnRequestListener {
+            public void onSuccess(String responseBody);
+        }
 
-        public abstract void onError();
+
     }
 
 
-    private Map<String, String> checkForAdditionalHeaders(){
+    /**
+     *
+     * @return
+     */
+    private Map<String, String> checkForAdditionalHeaders() {
         Map<String, String> params = new HashMap<String, String>();
 
-        if(additionalHeaders.size()!=0){
-            for(AdditionalHeader additionalHeader:additionalHeaders)
-                params.put(additionalHeader.key,additionalHeader.value);
+        if (additionalHeaders.size() != 0) {
+            for (AdditionalHeader additionalHeader : additionalHeaders)
+                params.put(additionalHeader.key, additionalHeader.value);
         }
         return params;
     }
-    public abstract String absoluteURL(String endPoint);
 
-    public void jsonObjectPostRequest(String endPoint, JSONObject params, final RequestListener requestListener) {
+    /**
+     *
+     * @param endPoint
+     * @return
+     */
+    public String absoluteURL(String endPoint){
+      return getHostAddress()+endPoint;
+    }
+
+    /**
+     *
+     * @return  the host address.. example: https://www.example.com
+     */
+    public abstract String getHostAddress();
 
 
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, absoluteURL(endPoint), params,
+    /**
+     *
+     * @param method            ex: Request.Method.POST
+     * @param endPoint          ex: /user/login
+     * @param params            ex: {"email":"xxxx","password":"xxxx"}
+     * @param requestListener   ex: ...
+     */
+    private void restObjectRequest(int method,String endPoint, JSONObject params, final RequestListener.OnJSONObjectSuccessListener requestListener) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, absoluteURL(endPoint), params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        if(requestListener!=null)
                         requestListener.onSuccess(response);
                         Log.d("RestResponse ", " [*] JSONObject: " + response.toString());
 
@@ -121,6 +166,7 @@ public abstract class ModernRESTClient {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if(requestListener!=null)
                 requestListener.onError();
             }
 
@@ -137,13 +183,19 @@ public abstract class ModernRESTClient {
     }
 
 
-    public void jsonArrayPostRequest(String endPoint, JSONArray params, final RequestListener requestListener) {
-
-
-        JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.POST, absoluteURL(endPoint), params,
+    /**
+     *
+     * @param method
+     * @param endPoint
+     * @param params
+     * @param requestListener
+     */
+    private void restArrayRequest(int method,String endPoint, JSONArray params, final RequestListener.OnJSONArraySuccessListener requestListener) {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(method, absoluteURL(endPoint), params,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        if(requestListener!=null)
                         requestListener.onSuccess(response);
                         Log.d("RestResponse ", " [*] JSONArray: " + response.toString());
 
@@ -152,16 +204,23 @@ public abstract class ModernRESTClient {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if(requestListener!=null)
                 requestListener.onError();
             }
 
         }
         );
-        queue.add(jsonObjectRequest);
+        queue.add(jsonArrayRequest);
     }
 
 
-    public void formPostRequest(String endPoint, final Map<String, String> params, final RequestListener requestListener) {
+    /**
+     *
+     * @param endPoint
+     * @param params
+     * @param requestListener
+     */
+    public void formPostRequest(String endPoint, final Map<String, String> params, final RequestListener.OnStringSuccessListener requestListener) {
 
         StringRequest stringRequest = new StringRequest(
 
@@ -171,6 +230,7 @@ public abstract class ModernRESTClient {
                     @Override
                     public void onResponse(String response) {
                         Log.d("RestResponse ", " [*] String: " + response);
+                        if(requestListener!=null)
                         requestListener.onSuccess(response);
                     }
                 },
@@ -178,6 +238,7 @@ public abstract class ModernRESTClient {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if(requestListener!=null)
                         requestListener.onError();
                     }
                 }) {
@@ -203,8 +264,13 @@ public abstract class ModernRESTClient {
         queue.add(stringRequest);
     }
 
-
-    public void formGetRequest(String endPoint, final Map<String, String> params, final RequestListener requestListener) {
+    /**
+     *
+     * @param endPoint
+     * @param params
+     * @param requestListener
+     */
+    public void formGetRequest(String endPoint, final Map<String, String> params, final RequestListener.OnStringSuccessListener requestListener) {
         StringRequest stringRequest = new StringRequest(
 
                 Request.Method.GET,
@@ -213,6 +279,7 @@ public abstract class ModernRESTClient {
                     @Override
                     public void onResponse(String response) {
                         Log.d("RestResponse ", " [*] String: " + response);
+                        if(requestListener!=null)
                         requestListener.onSuccess(response);
                     }
                 },
@@ -220,6 +287,7 @@ public abstract class ModernRESTClient {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if(requestListener!=null)
                         requestListener.onError();
                     }
                 }) {

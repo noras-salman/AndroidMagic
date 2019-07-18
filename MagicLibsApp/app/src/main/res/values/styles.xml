@@ -110,6 +110,7 @@
     <style name="Button.Light" parent="Button.Base">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="Button.Dark" parent="Button.Base">
         <item name="android:textColor">@android:color/black</item>
     </style>

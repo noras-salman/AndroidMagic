@@ -80,21 +80,55 @@ public abstract class MagicTable {
     }
 
 
+    public interface CursorFetchListener{
+        public void onCursorResult(Cursor cursor);
+        public void onFinish();
+    }
+
+    public void rawQuery(String sqlQuery,CursorFetchListener cursorFetchListener){
+        SQLiteDatabase db = magicDatabase.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        while (cursor.moveToNext()) {
+            if (cursorFetchListener != null)
+                cursorFetchListener.onCursorResult(cursor);
+        }
+
+        cursor.close();
+        db.close();
+        if (cursorFetchListener != null)
+            cursorFetchListener.onFinish();
+    }
+
     public interface RowFetchListener {
         public void onCursorResult(Object object);
 
         public void onFinish();
     }
 
-    public abstract List<? extends Object> populateObject(List<Object> objectList);
 
+
+    /**
+     * should return new object of your (YourModel)
+     * @param cursor
+     * @return new YourModel( .. using your columns ..)
+     */
     public abstract Object populateObject(Cursor cursor);
+
+    /**
+     * just return  ((List<YourModel>)(List<?>) objectList)
+     * @param objectList
+     * @return  ((List<YourModel>)(List<?>) objectList)
+     */
+    public abstract List<? extends Object> populateObject(List<Object> objectList);
 
     /**
      * cursor.getInt(cursor.getColumnIndex(COL_DURATION)),
      * TODO: look this design pattern for query https://stackoverflow.com/questions/34253161/how-should-i-populate-my-object
      **/
     public List<Object> queryForObjects(String sqlQuery, RowFetchListener rowFetchListener) {
+
+
         SQLiteDatabase db = magicDatabase.getReadableDatabase();
         Cursor cursor = db.rawQuery(sqlQuery, null);
         List<Object> objects = new ArrayList<>();
@@ -111,6 +145,36 @@ public abstract class MagicTable {
 
         return objects;
     }
+
+    public List<Object> queryForObjects(String sqlQuery) {
+        return queryForObjects(sqlQuery,null);
+    }
+
+    public Object queryForObject(String sqlQuery){
+        List<Object> objectList=queryForObjects(sqlQuery,null);
+        if(objectList.size()==0)
+            return null;
+        return objectList.get(0);
+    }
+
+    public Object getById(int id){
+        return queryForObject("SELECT * FROM "+getTableName()+" WHERE id="+id);
+    }
+
+    public int rowCount(){
+        int count=0;
+        SQLiteDatabase db = magicDatabase.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) AS row_count FROM "+getTableName()+" ", null);
+        while (cursor.moveToNext()) {
+            count=cursor.getInt(cursor.getColumnIndex("row_count"));
+            break;
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
+
 
 
 }

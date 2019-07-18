@@ -1,4 +1,4 @@
-package com.nasable.magiclibs.MagicLibs;
+package com.nasable.magiclibs.MagicLibs.MiniUitlity;
 
 
 import java.util.ArrayList;

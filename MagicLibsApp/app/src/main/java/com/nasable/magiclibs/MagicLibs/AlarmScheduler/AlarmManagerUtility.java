@@ -2,74 +2,74 @@ package com.nasable.magiclibs.MagicLibs.AlarmScheduler;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-/***
- * * * * * * * * * * * * * * * * * * * * * * *
- * Extend this class and implement the methods
- * * * * * * * * * * * * * * * * * * * * * * *
- * Example: MyAlarm
- MyAlarm extends AlarmManagerUtility{
 
+
+public abstract class AlarmManagerUtility  extends BroadcastReceiver {
+
+
+
+    /***
+     * The action to be done when an alarm is triggered
+     **/
+    public abstract void action();
+
+    /**
+     * @return The interval in milliseconds
+     **/
+    public abstract long getInterval();
+
+    /**
+     *
+     * @param context
+     * @param intent
+     */
     @Override
-    public long getInterval(){
-        return  AlarmManager.INTERVAL_FIFTEEN_MINUTES;
+    public void onReceive(Context context, Intent intent) {
+        action();
+        setAlarm(context);
     }
 
-    @Override
-    public void action(){
-        Log.d("MyAlarm","Alarm has been triggered");
+    /**
+     *
+     * @param context
+     */
+    public void setAlarm(Context context) {
+        setAlarm(context, getInterval());
     }
 
- }
- * * * * * * * * * * * * * * * * * * * * * * *
- * to set an alarm just call // new MyAlarm().setAlarm(getContext());
- * * * * * * * * * * * * * * * * * * * * * * *
- * Don't forget to register the receiver in the manifest.xml
-
- <receiver
- android:name=".MyAlarm"
- android:enabled="true"
- android:exported="true">
-     <intent-filter>
-         <action android:name="android.intent.action.BOOT_COMPLETED" />
-     </intent-filter>
- </receiver>
- * * * * * * * * * * * * * * * * * * * * * * *
- * ***/
-
-public abstract  class AlarmManagerUtility extends AlarmBroadcastReceiver {
-
-    @Override
-    public void whenDone(Context context) {
-        setAlarm(context,getInterval());
-    }
-
-    public void setAlarm(Context context){
-        setAlarm(context,getInterval());
-    }
-
-    private  void setAlarm(Context context, long intervalFromNow){
-        Log.d("AlarmManagerUtility","setAlarm interval "+(intervalFromNow/(1000*60)) +" min");
-        cancelAlarm(context);
-        Intent myIntent = new Intent(context, this.getClass());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                context, 1, myIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+intervalFromNow, pendingIntent);
-    }
-
-    public  void cancelAlarm(Context context){
-        Log.d("AlarmManagerUtility","cancelAlarm");
+    /**
+     *
+     * @param context
+     */
+    public void cancelAlarm(Context context) {
+        Log.d("AlarmManagerUtility", "cancelAlarm");
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent myIntent = new Intent(context, this.getClass());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 context, 1, myIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.cancel(pendingIntent);
+    }
+
+    /**
+     *
+     * @param context
+     * @param intervalMilliseconds
+     */
+    private void setAlarm(Context context, long intervalMilliseconds) {
+        Log.d("AlarmManagerUtility", "setAlarmInterval " + (intervalMilliseconds / (1000 * 60)) + " min");
+        cancelAlarm(context);
+        Intent myIntent = new Intent(context, this.getClass());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context, 1, myIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + intervalMilliseconds, pendingIntent);
     }
 
 }

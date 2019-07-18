@@ -10,9 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
 
-import static android.support.v4.app.NotificationCompat.PRIORITY_LOW;
+import androidx.core.app.NotificationCompat;
+
+import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 
 public class NotificationManagerUtility {
 
@@ -21,7 +22,6 @@ public class NotificationManagerUtility {
     private NotificationInfo notificationInfo;
 
     /**
-     *
      * @param context
      * @param notificationChannelInfo
      * @param notificationInfo
@@ -33,7 +33,6 @@ public class NotificationManagerUtility {
     }
 
     /**
-     *
      * @return
      */
     public NotificationChannelInfo getNotificationChannelInfo() {
@@ -41,7 +40,6 @@ public class NotificationManagerUtility {
     }
 
     /**
-     *
      * @return
      */
     public NotificationInfo getNotificationInfo() {
@@ -49,10 +47,9 @@ public class NotificationManagerUtility {
     }
 
     /**
-     *
      * @return
      */
-    private NotificationManager getPreparedNotificationManager(){
+    private NotificationManager getPreparedNotificationManager() {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -70,10 +67,9 @@ public class NotificationManagerUtility {
 
 
     /**
-     *
      * @return a notification ready to be triggered
      */
-    private Notification getNotification(){
+    private Notification getNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, notificationChannelInfo.getChannelId())
                 .setSmallIcon(notificationInfo.getNotificationIcon())
                 .setContentTitle(notificationInfo.getContentTitle())
@@ -82,7 +78,7 @@ public class NotificationManagerUtility {
 
         builder.setOngoing(notificationInfo.isOnGoing());
 
-        if(notificationInfo.getResultIntent()!=null) {
+        if (notificationInfo.getResultIntent() != null) {
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
             stackBuilder.addNextIntent(notificationInfo.getResultIntent());
 
@@ -97,19 +93,20 @@ public class NotificationManagerUtility {
      *
      */
     public void triggerNotification() {
-        NotificationManager notificationManager=getPreparedNotificationManager();
-        Notification notification=getNotification();
+        NotificationManager notificationManager = getPreparedNotificationManager();
+        Notification notification = getNotification();
         notificationManager.notify(notificationInfo.getNotificationId(), notification);
 
     }
 
     /**
      * [*]PS: requires android.permission.FOREGROUND_SERVICE in manifest
+     *
      * @param service
      * @param channel
      * @param notificationInfo
      */
-    public static void startForegroundService( Service service ,NotificationChannelInfo channel,NotificationInfo notificationInfo){
+    public static void startForegroundService(Service service, NotificationChannelInfo channel, NotificationInfo notificationInfo) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager mNotificationManager = (NotificationManager) service.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -131,7 +128,7 @@ public class NotificationManagerUtility {
                 .setCategory(Notification.CATEGORY_SERVICE)
                 .build();
 
-        service.startForeground(notificationInfo.getNotificationId(),notification);
+        service.startForeground(notificationInfo.getNotificationId(), notification);
     }
 
 
@@ -142,10 +139,9 @@ public class NotificationManagerUtility {
         private String channelId;
         private String channelTitle;
         private String channelDescription;
-        private  int importance = NotificationManager.IMPORTANCE_HIGH;
+        private int importance = NotificationManager.IMPORTANCE_HIGH;
 
         /**
-         *
          * @param channelId
          * @param channelTitle
          * @param channelDescription
@@ -173,7 +169,6 @@ public class NotificationManagerUtility {
         }
 
         /**
-         *
          * @param importance
          */
         public void setImportance(int importance) {
@@ -182,16 +177,15 @@ public class NotificationManagerUtility {
     }
 
 
-    public class NotificationInfo{
-        private int notificationId=0x01;
+    public class NotificationInfo {
+        private int notificationId = 0x01;
         private String contentTitle;
         private String contentText;
         private int notificationIcon;
         private Intent resultIntent;
-        private boolean onGoing=true;
+        private boolean onGoing = true;
 
         /**
-         *
          * @param contentTitle
          * @param contentText
          * @param notificationIcon
@@ -204,7 +198,6 @@ public class NotificationManagerUtility {
         }
 
         /**
-         *
          * @param resultIntent
          */
         public void setResultIntent(Intent resultIntent) {
@@ -212,7 +205,6 @@ public class NotificationManagerUtility {
         }
 
         /**
-         *
          * @param notificationId
          */
         public void setNotificationId(int notificationId) {
@@ -220,7 +212,6 @@ public class NotificationManagerUtility {
         }
 
         /**
-         *
          * @param onGoing
          */
         public void setOnGoing(boolean onGoing) {

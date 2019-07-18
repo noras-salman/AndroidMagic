@@ -1,10 +1,10 @@
 package com.nasable.magiclibs.MagicLibs.MagicView;
 
 import android.content.Context;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -126,10 +126,19 @@ public abstract class MagicViewHolder {
        return new MagicViewArrayAdapter(getContext(),this);
     }
 
+    /**
+     *
+     * @return
+     */
     public MagicRecyclerViewViewHolder getMagicRecycleViewHolder(){
         return new MagicRecyclerViewViewHolder(getInstance().getView(),this);
     }
 
+    /**
+     *
+     * @param items
+     * @return
+     */
     public MagicRecyclerViewAdapter getRecycleViewAdapter(List<Object> items){
         return new MagicRecyclerViewAdapter(this,items);
     }
@@ -147,6 +156,12 @@ public abstract class MagicViewHolder {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
+    /**
+     *
+     * @param context
+     * @param recyclerView
+     * @param numberOfColumns
+     */
     public static void setUpGridRecycleView(Context context,RecyclerView recyclerView,int numberOfColumns){
         GridLayoutManager gridLayoutManager=new GridLayoutManager(context, numberOfColumns);
         recyclerView.setLayoutManager(gridLayoutManager);

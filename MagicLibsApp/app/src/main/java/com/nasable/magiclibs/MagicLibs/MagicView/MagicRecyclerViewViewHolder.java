@@ -1,7 +1,6 @@
 package com.nasable.magiclibs.MagicLibs.MagicView;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 public class MagicRecyclerViewViewHolder extends RecyclerView.ViewHolder {
