@@ -42,6 +42,7 @@ public class _ExampleUser extends MagicDatabase {
         }
     }
 
+
     @Override
     public List<MagicTable> getTables() {
         List<MagicTable> magicTables=new ArrayList<>();
@@ -54,7 +55,7 @@ public class _ExampleUser extends MagicDatabase {
         magicTables.add(new MagicTableUsingModel(this, User.class) {
             @Override
             public Object populateObject(Cursor cursor) {
-                // populating a class is better with hand haha
+                // populating a class is better by hand haha
                 return new User(cursor.getInt(cursor.getColumnIndex(MagicColumn.COLUMN_NAME_ID)),
                         cursor.getString(cursor.getColumnIndex("email")),
                         cursor.getString(cursor.getColumnIndex("date_created")));

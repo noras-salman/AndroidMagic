@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * Extends this
- * requires layout/fragment_abstract_bottom_navigation.xml
+ * requires layout/_magic_theme_fragment_abstract_bottom_navigation.xmlavigation.xml
  */
 public abstract class AbstractBottomNavigationFragment extends Fragment {
 
@@ -44,7 +44,7 @@ public abstract class AbstractBottomNavigationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.fragment_abstract_bottom_navigation, container, false);
+        View root= inflater.inflate(R.layout._magic_theme_fragment_abstract_bottom_navigation, container, false);
 
 
         final ViewPager viewPager=root.findViewById(R.id.viewPager);

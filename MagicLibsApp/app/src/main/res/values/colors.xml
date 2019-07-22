@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <color name="colorPrimaryDark">@color/DarkColorPrimaryDark</color>
-    <color name="colorPrimary">@color/DarkCardLight</color>
-    <color name="windowBackground">@color/DarkWindowBackground</color>
-    <color name="navigationBarColor">@color/DarkCardLight</color>
-    <color name="colorAccent">@color/LightBlue500</color>
-    <color name="bottomNavigationBarBackground">@color/DarkCardLight</color>
-
-
-
-
     <color name="DarkColorPrimaryDark">#0e1022</color>
     <color name="DarkCardDark">#101226</color>
     <color name="DarkCardLight">#1c1e31</color>
@@ -20,6 +9,16 @@
     <color name="DarkSecondaryText">#565864</color>
     <color name="DarkGradientLight">#2c2c3e</color>
     <color name="DarkGradientDark">#1c1e31</color>
+
+    <!--THEME-->
+    <color name="colorPrimaryDark">@color/DarkColorPrimaryDark</color>
+    <color name="colorPrimary">@color/DarkCardLight</color>
+    <color name="windowBackground">@color/DarkWindowBackground</color>
+    <color name="navigationBarColor">@color/DarkCardLight</color>
+    <color name="colorAccent">@color/LightBlue500</color>
+    <color name="bottomNavigationBarBackground">@color/DarkCardLight</color>
+
+
 
 
     <!--FLAT-->

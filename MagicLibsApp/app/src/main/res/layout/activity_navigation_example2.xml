@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/windowBackground"
-    tools:context=".NavigationExample2">
+    tools:context=".MagicLibs.Navigation.NavigationExample2">
 
 
     <FrameLayout

@@ -11,8 +11,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 
+import androidx.annotation.RequiresPermission;
 import androidx.core.app.NotificationCompat;
 
+import static android.Manifest.permission.FOREGROUND_SERVICE;
 import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 
 public class NotificationManagerUtility {
@@ -100,12 +102,12 @@ public class NotificationManagerUtility {
     }
 
     /**
-     * [*]PS: requires android.permission.FOREGROUND_SERVICE in manifest
      *
      * @param service
      * @param channel
      * @param notificationInfo
      */
+    @RequiresPermission(FOREGROUND_SERVICE)
     public static void startForegroundService(Service service, NotificationChannelInfo channel, NotificationInfo notificationInfo) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager mNotificationManager = (NotificationManager) service.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -135,7 +137,7 @@ public class NotificationManagerUtility {
     /**
      *
      */
-    public class NotificationChannelInfo {
+    public static class NotificationChannelInfo {
         private String channelId;
         private String channelTitle;
         private String channelDescription;
@@ -177,7 +179,7 @@ public class NotificationManagerUtility {
     }
 
 
-    public class NotificationInfo {
+    public static class NotificationInfo {
         private int notificationId = 0x01;
         private String contentTitle;
         private String contentText;

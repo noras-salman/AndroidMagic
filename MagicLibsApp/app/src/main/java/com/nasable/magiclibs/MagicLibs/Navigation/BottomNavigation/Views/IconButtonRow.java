@@ -23,9 +23,9 @@ public class IconButtonRow extends MagicViewHolder {
 
     Animation selectAnimation;
     public IconButtonRow(Context context,LinearLayout linearLayout) {
-        super(context, R.layout.view_icon_button_row);
+        super(context, R.layout._magic_theme_view_icon_button_row);
         row=linearLayout;
-        selectAnimation= AnimationUtils.loadAnimation(getContext(),R.anim.shake);
+        selectAnimation= AnimationUtils.loadAnimation(getContext(),R.anim._magic_theme_shake);
     }
 
     private LinearLayout row;

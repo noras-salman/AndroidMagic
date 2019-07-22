@@ -3,6 +3,8 @@ package com.nasable.magiclibs.MagicLibs.HTTPClient;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.RequiresPermission;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Cache;
 import com.android.volley.Network;
@@ -25,12 +27,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.Manifest.permission.INTERNET;
+
 
 /**
  * Created by noras on 2019-02-13.
  */
 
-public abstract class ModernRESTClient {
+
+public abstract class ModernHTTPClient {
 
 
     private Cache cache;
@@ -40,10 +45,10 @@ public abstract class ModernRESTClient {
     private List<AdditionalHeader> additionalHeaders;
 
     /**
-     *
      * @param context
      */
-    ModernRESTClient(Context context) {
+    @RequiresPermission(INTERNET)
+    ModernHTTPClient(Context context) {
         this.context = context;
         cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024);
         network = new BasicNetwork(new HurlStack());
@@ -74,7 +79,6 @@ public abstract class ModernRESTClient {
     }
 
     /**
-     *
      * @param key
      * @param value
      */
@@ -83,7 +87,6 @@ public abstract class ModernRESTClient {
     }
 
     /**
-     *
      * @param token
      */
     public void addBasicAuthorization(String token) {
@@ -94,17 +97,17 @@ public abstract class ModernRESTClient {
      *
      */
     public static class RequestListener {
-        
+
         public interface OnRequestListener {
             public void onError();
         }
 
         public interface OnJSONArraySuccessListener extends OnRequestListener {
-            public void onSuccess(JSONArray jsonArray);
+            public void onSuccess(JSONArray response);
         }
 
         public interface OnJSONObjectSuccessListener extends OnRequestListener {
-            public void onSuccess(JSONObject jsonArray);
+            public void onSuccess(JSONObject response);
         }
 
         public interface OnStringSuccessListener extends OnRequestListener {
@@ -116,7 +119,6 @@ public abstract class ModernRESTClient {
 
 
     /**
-     *
      * @return
      */
     private Map<String, String> checkForAdditionalHeaders() {
@@ -130,35 +132,32 @@ public abstract class ModernRESTClient {
     }
 
     /**
-     *
      * @param endPoint
      * @return
      */
-    public String absoluteURL(String endPoint){
-      return getHostAddress()+endPoint;
+    public String absoluteURL(String endPoint) {
+        return getHostAddress() + endPoint;
     }
 
     /**
-     *
-     * @return  the host address.. example: https://www.example.com
+     * @return the host address.. example: https://www.example.com
      */
     public abstract String getHostAddress();
 
 
     /**
-     *
-     * @param method            ex: Request.Method.POST
-     * @param endPoint          ex: /user/login
-     * @param params            ex: {"email":"xxxx","password":"xxxx"}
-     * @param requestListener   ex: ...
+     * @param method          ex: Request.Method.POST
+     * @param endPoint        ex: /user/login
+     * @param params          ex: {"email":"xxxx","password":"xxxx"}
+     * @param requestListener ex: ...
      */
-    private void restObjectRequest(int method,String endPoint, JSONObject params, final RequestListener.OnJSONObjectSuccessListener requestListener) {
+    protected void restObjectRequest(int method, String endPoint, JSONObject params, final RequestListener.OnJSONObjectSuccessListener requestListener) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, absoluteURL(endPoint), params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        if(requestListener!=null)
-                        requestListener.onSuccess(response);
+                        if (requestListener != null)
+                            requestListener.onSuccess(response);
                         Log.d("RestResponse ", " [*] JSONObject: " + response.toString());
 
                     }
@@ -166,8 +165,8 @@ public abstract class ModernRESTClient {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if(requestListener!=null)
-                requestListener.onError();
+                if (requestListener != null)
+                    requestListener.onError();
             }
 
         }
@@ -184,19 +183,18 @@ public abstract class ModernRESTClient {
 
 
     /**
-     *
      * @param method
      * @param endPoint
      * @param params
      * @param requestListener
      */
-    private void restArrayRequest(int method,String endPoint, JSONArray params, final RequestListener.OnJSONArraySuccessListener requestListener) {
+    private void restArrayRequest(int method, String endPoint, JSONArray params, final RequestListener.OnJSONArraySuccessListener requestListener) {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(method, absoluteURL(endPoint), params,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        if(requestListener!=null)
-                        requestListener.onSuccess(response);
+                        if (requestListener != null)
+                            requestListener.onSuccess(response);
                         Log.d("RestResponse ", " [*] JSONArray: " + response.toString());
 
                     }
@@ -204,8 +202,8 @@ public abstract class ModernRESTClient {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if(requestListener!=null)
-                requestListener.onError();
+                if (requestListener != null)
+                    requestListener.onError();
             }
 
         }
@@ -215,7 +213,6 @@ public abstract class ModernRESTClient {
 
 
     /**
-     *
      * @param endPoint
      * @param params
      * @param requestListener
@@ -230,16 +227,16 @@ public abstract class ModernRESTClient {
                     @Override
                     public void onResponse(String response) {
                         Log.d("RestResponse ", " [*] String: " + response);
-                        if(requestListener!=null)
-                        requestListener.onSuccess(response);
+                        if (requestListener != null)
+                            requestListener.onSuccess(response);
                     }
                 },
                 new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(requestListener!=null)
-                        requestListener.onError();
+                        if (requestListener != null)
+                            requestListener.onError();
                     }
                 }) {
 
@@ -265,7 +262,6 @@ public abstract class ModernRESTClient {
     }
 
     /**
-     *
      * @param endPoint
      * @param params
      * @param requestListener
@@ -279,16 +275,16 @@ public abstract class ModernRESTClient {
                     @Override
                     public void onResponse(String response) {
                         Log.d("RestResponse ", " [*] String: " + response);
-                        if(requestListener!=null)
-                        requestListener.onSuccess(response);
+                        if (requestListener != null)
+                            requestListener.onSuccess(response);
                     }
                 },
                 new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(requestListener!=null)
-                        requestListener.onError();
+                        if (requestListener != null)
+                            requestListener.onError();
                     }
                 }) {
 

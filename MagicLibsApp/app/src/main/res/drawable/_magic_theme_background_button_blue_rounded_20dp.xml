@@ -3,14 +3,14 @@
 
     <item
         android:state_enabled="false"
-        android:drawable="@drawable/drawable_rounded_8dp_blue100" />
+        android:drawable="@drawable/_magic_theme_drawable_rounded_20dp_blue100" />
     <item
         android:state_pressed="true"
         android:state_enabled="true"
-        android:drawable="@drawable/drawable_rounded_8dp_blue300" />
+        android:drawable="@drawable/_magic_theme_drawable_rounded_20dp_blue300" />
 
     <item
         android:state_enabled="true"
-        android:drawable="@drawable/drawable_rounded_8dp_blue500" />
+        android:drawable="@drawable/_magic_theme_drawable_rounded_20dp_blue500" />
 
 </selector>

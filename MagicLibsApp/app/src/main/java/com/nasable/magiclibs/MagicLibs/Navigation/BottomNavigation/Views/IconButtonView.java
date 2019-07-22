@@ -37,7 +37,7 @@ public class IconButtonView extends MagicViewHolder {
     }
 
     public IconButtonView(Context context) {
-        super(context, R.layout.view_icon_button);
+        super(context, R.layout._magic_theme_view_icon_button);
     }
 
      @Override

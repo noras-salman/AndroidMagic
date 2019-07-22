@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NavigationExample2"></activity>
+        <activity android:name=".MagicLibs.Navigation.NavigationExample2"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NavigationExample" />
+        <activity android:name=".MagicLibs.Navigation.NavigationExample" />
 
         <service
             android:name=".MyVpnService"

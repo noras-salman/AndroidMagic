@@ -7,7 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBackground</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationBarColor</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">
+            @color/navigationBarColor
+        </item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -116,19 +118,24 @@
     </style>
 
     <style name="Button.Primary" parent="Button.Light">
-        <item name="android:background">@drawable/background_button_blue_rounded_8dp</item>
+        <item name="android:background">@drawable/_magic_theme_background_button_blue_rounded_8dp
+        </item>
     </style>
 
     <style name="Button.PrimaryRounded" parent="Button.Light">
-        <item name="android:background">@drawable/background_button_blue_rounded_20dp</item>
+        <item name="android:background">@drawable/_magic_theme_background_button_blue_rounded_20dp
+        </item>
     </style>
 
     <style name="Button.Secoundary" parent="Button.Dark">
-        <item name="android:background">@drawable/background_button_grey_rounded_20dp</item>
+        <item name="android:background">@drawable/_magic_theme_background_button_grey_rounded_20dp
+        </item>
     </style>
 
     <style name="Button.Success" parent="Button.Light">
-        <item name="android:background">@drawable/background_button_green_rounded_20dp</item>
+        <item name="android:background">
+            @drawable/_magic_theme_background_button_green_rounded_20dp
+        </item>
     </style>
 
 </resources>

@@ -39,7 +39,7 @@ public abstract class AbstractBottomBarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_bottom_bar, container, false);
+        View root = inflater.inflate(R.layout._magic_theme_fragment_bottom_bar, container, false);
 
         icon_holder = root.findViewById(R.id.icon_holder);
 

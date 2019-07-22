@@ -1,4 +1,4 @@
-package com.nasable.magiclibs;
+package com.nasable.magiclibs.MagicLibs.Navigation;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

@@ -85,6 +85,7 @@ public abstract class MagicTable {
         public void onFinish();
     }
 
+
     public void rawQuery(String sqlQuery,CursorFetchListener cursorFetchListener){
         SQLiteDatabase db = magicDatabase.getReadableDatabase();
         Cursor cursor = db.rawQuery(sqlQuery, null);

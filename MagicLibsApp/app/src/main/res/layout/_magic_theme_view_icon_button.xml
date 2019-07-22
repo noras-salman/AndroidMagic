@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/badge_round"/>
+                android:background="@drawable/_magic_theme_badge_round"/>
         </RelativeLayout>
         <TextView
             android:id="@+id/under_text"

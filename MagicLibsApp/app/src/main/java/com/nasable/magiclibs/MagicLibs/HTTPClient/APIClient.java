@@ -2,19 +2,12 @@ package com.nasable.magiclibs.MagicLibs.HTTPClient;
 
 import android.content.Context;
 
-import com.android.volley.Request;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
 
 /**
  * Example
  */
 
-public class APIClient extends ModernRESTClient {
+public class APIClient extends ModernHTTPClient {
 
 
     APIClient(Context context) {
