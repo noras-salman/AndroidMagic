@@ -14,6 +14,7 @@ public class BottomNavigationFragment extends AbstractBottomNavigationFragment {
 
     @Override
     public AbstractBottomBarFragment getBottomBarFragment() {
+
         return new BottomBarFragment();
     }
 

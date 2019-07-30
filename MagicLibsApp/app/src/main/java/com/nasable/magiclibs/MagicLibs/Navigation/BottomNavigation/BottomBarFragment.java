@@ -9,8 +9,27 @@ public class BottomBarFragment extends AbstractBottomBarFragment {
 
     @Override
     public void addItems(IconButtonRow iconButtonRow) {
+      //  iconButtonRow.setIconOnly(true);
+
         iconButtonRow.addItem("TEST", R.drawable.ic_favourite_off);
         iconButtonRow.addItem("TEST",R.drawable.ic_favourite_off);
         iconButtonRow.addItem("TEST",R.drawable.ic_favourite_off);
+        iconButtonRow.addItem("TEST",R.drawable.ic_favourite_off);
+        iconButtonRow.addItem("TEST",R.drawable.ic_favourite_off);
+    }
+
+    @Override
+    public int getBackgroundColor() {
+        return R.color.colorPrimary;
+    }
+
+    @Override
+    public int getActiveColor() {
+        return R.color.Blue500;
+    }
+
+    @Override
+    public int getInactiveColor() {
+        return  R.color.Grey600;
     }
 }

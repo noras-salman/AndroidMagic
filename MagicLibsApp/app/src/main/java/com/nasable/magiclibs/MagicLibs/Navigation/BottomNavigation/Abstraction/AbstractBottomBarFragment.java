@@ -44,8 +44,9 @@ public abstract class AbstractBottomBarFragment extends Fragment {
         icon_holder = root.findViewById(R.id.icon_holder);
 
         iconButtonRow = new IconButtonRow(getContext(), icon_holder);
-        iconButtonRow.setActiveColor(ContextCompat.getColor(getContext(), R.color.Blue500));
-        iconButtonRow.setInactiveColor(ContextCompat.getColor(getContext(), R.color.Grey600));
+        iconButtonRow.setActiveColor(ContextCompat.getColor(getContext(), getActiveColor()));
+        iconButtonRow.setInactiveColor(ContextCompat.getColor(getContext(),getInactiveColor()));
+        iconButtonRow.setBackgroundColor(ContextCompat.getColor(getContext(), getBackgroundColor()));
 
 
         addItems(iconButtonRow);
@@ -70,6 +71,9 @@ public abstract class AbstractBottomBarFragment extends Fragment {
      * @param iconButtonRow
      */
     public abstract void  addItems(IconButtonRow iconButtonRow);
+    public abstract int  getBackgroundColor();
+    public abstract int  getActiveColor();
+    public abstract int  getInactiveColor();
 
     public void addItem(String text,int iconResource){
         iconButtonRow.addItem(text,iconResource);

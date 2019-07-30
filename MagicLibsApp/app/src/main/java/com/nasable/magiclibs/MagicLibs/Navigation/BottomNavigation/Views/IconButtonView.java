@@ -108,6 +108,14 @@ public class IconButtonView extends MagicViewHolder {
         }
     }
 
+    public void seLabelVisible(boolean visible){
+        if(visible){
+            under_text.setVisibility(View.VISIBLE);
+        }else {
+            under_text.setVisibility(View.GONE);
+        }
+    }
+
     @Override
     public void buildView(Object object) {
 
