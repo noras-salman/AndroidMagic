@@ -13,8 +13,8 @@ Create array adapters and recycle view adapters only given an xml and binding it
 Bottom Navigation bar with animation. Tab view ..etc
 
 Also UI and themes resources that (some required for the UI libs)
-[styles.xml](/MagicLibsApp/app/src/main/values/styles.xml)
-[colors.xml](/MagicLibsApp/app/src/main/values/colors.xml)
+[styles.xml](/MagicLibsApp/app/src/main/res/values/styles.xml)
+[colors.xml](/MagicLibsApp/app/src/main/res/values/colors.xml)
 [anim](/MagicLibsApp/app/src/main/res/anim)
 [drawable](/MagicLibsApp/app/src/main/res/drawable)
 [layout](/MagicLibsApp/app/src/main/res/layout)
