@@ -18,6 +18,10 @@ public class MagicTimestamp {
         timestamp = System.currentTimeMillis();
     }
 
+    public static MagicTimestamp now(){
+        return new MagicTimestamp();
+    }
+
     /**
      * pass a long timestamp
      **/
@@ -193,7 +197,6 @@ public class MagicTimestamp {
     }
 
     public String getDayMonth() {
-
         Date date = new Date(timestamp);
         DateFormat formatter = new SimpleDateFormat("dd MMM");
         return formatter.format(date);

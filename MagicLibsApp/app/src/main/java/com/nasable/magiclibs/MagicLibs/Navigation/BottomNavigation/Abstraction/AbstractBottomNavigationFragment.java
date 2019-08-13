@@ -46,7 +46,6 @@ public abstract class AbstractBottomNavigationFragment extends Fragment {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout._magic_theme_fragment_abstract_bottom_navigation, container, false);
 
-
         final ViewPager viewPager=root.findViewById(R.id.viewPager);
 
         bottomBarFragment=getBottomBarFragment();
@@ -56,6 +55,7 @@ public abstract class AbstractBottomNavigationFragment extends Fragment {
         ScreenSliderAdapter screenSliderAdapter=new ScreenSliderAdapter(getFragmentManager(),fragments);
 
         viewPager.setAdapter(screenSliderAdapter);
+
         screenSliderAdapter.setZoomTransformer(viewPager);
 
         bottomBarFragment.setOnBottomNavigationSelectListener(new AbstractBottomBarFragment.OnBottomNavigationSelectListener() {

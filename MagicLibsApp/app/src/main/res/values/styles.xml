@@ -17,7 +17,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
     <style name="TypeScale.H1" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-light</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">-0.094</item>
@@ -98,15 +97,12 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-
     <style name="Button.Base" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-medium</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.078</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:foreground">?attr/actionBarItemBackground</item>
-
-
     </style>
 
     <style name="Button.Light" parent="Button.Base">
