@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class MagicTimestamp {
@@ -43,7 +44,7 @@ public class MagicTimestamp {
 
     /**
      *
-     * @param timestamp
+     * @param timestamp the timestamp as a string with a yyyy-MM-dd HH:mm:ss pattern
      * @throws ParseException
      */
     public MagicTimestamp(String timestamp) throws ParseException {
@@ -60,16 +61,7 @@ public class MagicTimestamp {
         return this.timestamp;
     }
 
-    /**
-     *
-     * @return
-     * @throws ParseException
-     */
-    public String getTimestampLocalFromUTC() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss", simpleDateFormat.parse( getSQLTimestamp())).toString();
-    }
+
 
 
 
@@ -96,6 +88,115 @@ public class MagicTimestamp {
     public int getDateWeekNumber() {
         return getDateDayOfYear() / 7;
     }
+
+
+
+    /**
+     * ======== String Functions ========
+     **/
+
+    public String getYearYYYY() {
+
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("yyyy");
+        return formatter.format(date);
+    }
+
+    public String getMonthMM() {
+
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("MM");
+        return formatter.format(date);
+    }
+
+    public String getDayDD() {
+
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("dd");
+        return formatter.format(date);
+    }
+
+    public String getHourMinute() {
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("HH:mm");
+        return formatter.format(date);
+    }
+
+    public String getDayMonth() {
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("dd MMM", Locale.getDefault());
+        return formatter.format(date);
+    }
+
+    public String getDayMonthYear() {
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat("dd MMM yy", Locale.getDefault());
+        return formatter.format(date);
+    }
+
+    public String getUserFriendly() {
+        return getDiffHumanReadable(MagicTimestamp.now());
+    }
+
+    public static final String PATTERN_DATETIME="yyyy-MM-dd HH:mm:ss";
+    public static final String PATTERN_ISO_8601="yyyy-MM-dd'T'HH:mm'Z'";
+    public static final String PATTERN_RFC_2822="EEE, dd MMM yyyy HH:mm:ss Z'";
+    public static final String PATTERN_RFC_3339="yyyy-MM-dd'T'HH:mm:ssXXX'";
+    public static final String PATTERN_RFC_882="E, d MMM yyyy HH:mm:ss Z";
+    public static final String TIMEZONE_UTC="UTC";
+
+    public String getDefaultTimeZoneId(){
+        return TimeZone.getDefault().getID();
+    }
+
+    public String getPatternTimeStamp(String pattern){
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat(pattern, Locale.getDefault());
+        return formatter.format(date);
+    }
+
+
+    public String getPatternTimestampWithTimeZone(String pattern,String timeZoneId){
+        Date date = new Date(timestamp);
+        DateFormat formatter = new SimpleDateFormat(pattern, Locale.getDefault());
+        formatter.setTimeZone(TimeZone.getTimeZone(timeZoneId));
+        return formatter.format(date);
+    }
+    /**
+     *
+     * **/
+    public String getSQLTimestamp() {
+        return getPatternTimeStamp(PATTERN_DATETIME);
+    }
+
+    /**
+     *
+     * @return
+     * @throws ParseException
+     */
+    public String getTimestampLocalFromUTC() throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss", simpleDateFormat.parse( getSQLTimestamp())).toString();
+    }
+
+
+    private MagicTimestamp getMostRecent(MagicTimestamp magicTimestamp) {
+        if (magicTimestamp.getTimestamp() > this.timestamp)
+            return magicTimestamp;
+
+        return this;
+    }
+
+    private MagicTimestamp getOldest(MagicTimestamp magicTimestamp) {
+        if (magicTimestamp.getTimestamp() < this.timestamp)
+            return magicTimestamp;
+
+        return this;
+    }
+
+
+
 
     /**
      * ======== Diff Functions ========
@@ -165,73 +266,6 @@ public class MagicTimestamp {
         return diff;
     }
 
-    /**
-     * ======== String Functions ========
-     **/
-
-    public String getYearYYYY() {
-
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("yyyy");
-        return formatter.format(date);
-    }
-
-    public String getMonthMM() {
-
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("MM");
-        return formatter.format(date);
-    }
-
-    public String getDayDD() {
-
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("dd");
-        return formatter.format(date);
-    }
-
-    public String getHourMinute() {
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("HH:mm");
-        return formatter.format(date);
-    }
-
-    public String getDayMonth() {
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("dd MMM");
-        return formatter.format(date);
-    }
-
-    public String getDayMonthYear() {
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("dd MMM yy");
-        return formatter.format(date);
-    }
-
-    /**
-     *
-     * **/
-    public String getSQLTimestamp() {
-        Date date = new Date(timestamp);
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return formatter.format(date);
-    }
-
-
-    private MagicTimestamp getMostRecent(MagicTimestamp magicTimestamp) {
-        if (magicTimestamp.getTimestamp() > this.timestamp)
-            return magicTimestamp;
-
-        return this;
-    }
-
-    private MagicTimestamp getOldest(MagicTimestamp magicTimestamp) {
-        if (magicTimestamp.getTimestamp() < this.timestamp)
-            return magicTimestamp;
-
-        return this;
-    }
-
 
     /**
      * returns a human readable difference
@@ -290,6 +324,7 @@ public class MagicTimestamp {
     //start at 1
     private int getDayOfYear(int year, int month, int day) {
         int count = 0;
+        //days that passed before month
         for (int i = 1; i < month; i++)
             count += getNumberOfDays(year, i);
         count += day;

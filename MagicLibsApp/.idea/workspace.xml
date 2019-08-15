@@ -17,22 +17,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12a90ace-5b82-4e33-be41-b1aefb851b31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/HTTPClient/RetrofitService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/AppDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/Usage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Preshiped/SQLiteAssetHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation/Abstraction/AbstractBottomNavigationFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation/Abstraction/AbstractBottomNavigationFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,32 +39,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/NavigationExample2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="285">
+              <caret line="24" column="117" selection-start-line="24" selection-start-column="117" selection-end-line="24" selection-end-column="117" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="75" selection-start-line="5" selection-start-column="78" selection-end-line="6" selection-end-column="75" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Preshiped/SQLiteAssetHelper.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/User.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="147">
+              <caret line="141" column="47" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
+                <element signature="e#496#497#0" expanded="true" />
+                <element signature="e#3277#3278#0" expanded="true" />
+                <element signature="e#3342#3343#0" expanded="true" />
+                <element signature="e#3817#3818#0" expanded="true" />
+                <element signature="e#3868#3869#0" expanded="true" />
+                <element signature="e#4596#4597#0" expanded="true" />
+                <element signature="e#4656#4657#0" expanded="true" />
+                <element signature="e#7221#7222#0" expanded="true" />
+                <element signature="e#7275#7276#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -107,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/Usage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="405">
               <caret line="27" column="45" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -119,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/HTTPClient/RetrofitService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="555">
               <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="52" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -128,7 +131,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -148,15 +151,6 @@
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/_magic_theme_background_edit.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="56" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -183,6 +177,7 @@
       <find>*</find>
       <find>row</find>
       <find>int KEY_TYPE,</find>
+      <find>getDayOfYear</find>
     </findStrings>
     <replaceStrings>
       <replace>On</replace>
@@ -195,8 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/MagicColumn.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicView/MagicViewHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MiniUitlity/ExportUtility.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/NavigationExample.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/ScreenSliderAdapter.java" />
@@ -237,23 +230,25 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation/Abstraction/AbstractBottomNavigationFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/HTTPClient/RetrofitService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/User.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/AppDatabase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/UserDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/Usage.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Preshiped/SQLiteAssetHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/readme.md" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="415" />
-    <option name="y" value="264" />
-    <option name="width" value="1514" />
-    <option name="height" value="1095" />
+    <option name="x" value="143" />
+    <option name="y" value="156" />
+    <option name="width" value="1285" />
+    <option name="height" value="1146" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -263,6 +258,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -286,7 +282,23 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="magiclibs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="FileStructure" type="462c0819:PsiDirectoryNode" />
+              <item name="MagicLibs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MagicLibsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="magiclibs" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="MagicLibs" type="462c0819:PsiDirectoryNode" />
+              <item name="MagicView" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MagicLibsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="magiclibs" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="MagicLibs" type="462c0819:PsiDirectoryNode" />
+              <item name="MiniUitlity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MagicLibsApp" type="1abcf292:AndroidViewProjectNode" />
@@ -296,7 +308,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,9 +317,12 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/res/xml-layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.nasable.magiclibs" />
@@ -318,14 +332,12 @@
       <recent name="com.nasable.magiclibs.MagicLibs.Navigation" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nasable.magiclibs.MagicLibs.MagicDatabase.Preshiped" />
       <recent name="com.nasable.magiclibs.MagicLibs.Navigation.BottomNavigation" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/res/xml-layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/anim" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -425,11 +437,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="415" y="264" width="1514" height="1095" extended-state="0" />
+    <frame x="143" y="156" width="1285" height="1146" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.35054347" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.41512468" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -442,9 +454,9 @@
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49932066" weight="0.32901296" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4994726" weight="0.32983872" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5088315" side_tool="true" visible="true" weight="0.38185444" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50925183" side_tool="true" visible="true" weight="0.3633776" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32983872" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49116847" visible="true" weight="0.38185444" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4907482" visible="true" weight="0.3633776" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" weight="0.32983872" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.49709865" weight="0.32860938" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -456,24 +468,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MiniUitlity/ExportUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MiniUitlity/NumberUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/ScreenSliderAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -715,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/NavigationExample2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="117" selection-start-line="24" selection-start-column="117" selection-end-line="24" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation/BottomNavigationFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -790,17 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="198" column="33" selection-start-line="198" selection-start-column="33" selection-end-line="198" selection-end-column="33" />
-          <folding>
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/BottomNavigation/Views/IconButtonView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
@@ -834,20 +810,20 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicView/readme.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/AppDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -864,35 +840,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/HTTPClient/RetrofitService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/AppDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="52" selection-end-column="19" />
+        <state relative-caret-position="75">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Room/Usage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="405">
           <caret line="27" column="45" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/HTTPClient/RetrofitService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="52" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -905,6 +876,51 @@
           <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/Navigation/NavigationExample2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="117" selection-start-line="24" selection-start-column="117" selection-end-line="24" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicDatabase/Preshiped/SQLiteAssetHelper.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nasable/magiclibs/MagicLibs/MagicTimestamp/MagicTimestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="141" column="47" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#3342#3343#0" expanded="true" />
+            <element signature="e#3817#3818#0" expanded="true" />
+            <element signature="e#3868#3869#0" expanded="true" />
+            <element signature="e#4596#4597#0" expanded="true" />
+            <element signature="e#4656#4657#0" expanded="true" />
+            <element signature="e#7221#7222#0" expanded="true" />
+            <element signature="e#7275#7276#0" expanded="true" />
           </folding>
         </state>
       </provider>
