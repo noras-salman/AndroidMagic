@@ -14,8 +14,7 @@ import io.reactivex.schedulers.Schedulers;
 public class Usage {
 
     public AppDatabase getInstance(Context context){
-        AppDatabase db = Room.databaseBuilder(context,
-                AppDatabase.class, "database-name").build();
+        AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "database-name").build();
 
         /*Normal*/
         //db.userDao().getAll();

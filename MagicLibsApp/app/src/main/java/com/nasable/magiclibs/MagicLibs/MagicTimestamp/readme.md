@@ -1,4 +1,4 @@
- # MagicTimestamp
+# MagicTimestamp
 
 ## Constructors
 

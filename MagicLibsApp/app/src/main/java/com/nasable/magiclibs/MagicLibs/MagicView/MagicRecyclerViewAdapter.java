@@ -1,31 +1,37 @@
 package com.nasable.magiclibs.MagicLibs.MagicView;
 
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.ViewGroup;
 
 import java.util.List;
 
 public class MagicRecyclerViewAdapter extends RecyclerView.Adapter<MagicRecyclerViewViewHolder> {
 
-    MagicViewHolder magicViewHolder;
-    List<Object> items;
+    private MagicRecyclerViewViewHolder magicRecyclerViewViewHolder;
+    private List<? extends Object> items;
 
-    public MagicRecyclerViewAdapter(MagicViewHolder magicViewHolder, List<Object> items) {
-        this.magicViewHolder = magicViewHolder;
+    public MagicRecyclerViewAdapter(MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, List<? extends Object> items) {
+        this.magicRecyclerViewViewHolder = magicRecyclerViewViewHolder;
+        this.items=items;
+    }
+
+    public void setItems(List<? extends Object> items) {
         this.items = items;
+        notifyDataSetChanged();
     }
 
     @Override
     public MagicRecyclerViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        return magicViewHolder.getMagicRecycleViewHolder();
+        /* Return a new instance */
+        return magicRecyclerViewViewHolder.createNewInstance();
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, int position) {
-        // build
+        /* Call build */
         magicRecyclerViewViewHolder.build(items.get(position));
         magicRecyclerViewViewHolder.itemView.setTag(items.get(position));
     }

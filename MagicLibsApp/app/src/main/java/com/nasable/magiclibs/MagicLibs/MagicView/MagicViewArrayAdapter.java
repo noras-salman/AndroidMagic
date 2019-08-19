@@ -45,11 +45,10 @@ public class MagicViewArrayAdapter extends ArrayAdapter<Object> {
      *
      * @param objectList a list of objects from a class that extends MagicViewDataModel
      * */
-    public void refill(List<MagicViewDataModel> objectList) {
+    public void refill(List<? extends Object> objectList) {
         clear();
         addAll(objectList);
         notifyDataSetChanged();
-
     }
 
     /**
@@ -62,10 +61,8 @@ public class MagicViewArrayAdapter extends ArrayAdapter<Object> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         MagicViewHolder viewHolder;
         if (convertView == null) {
-
             /* Get a new instance for each new item view that has NOT been created before */
             viewHolder = magicViewHolder.getInstance();
             convertView = viewHolder.getView();

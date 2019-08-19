@@ -1,14 +1,8 @@
 package com.nasable.magiclibs.MagicLibs.MagicView;
 
 import android.content.Context;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-
-import java.util.List;
 
 /**
  * Created 2018-12-04
@@ -16,6 +10,8 @@ import java.util.List;
  * @since 0.1
  * @version 3.0
  **/
+
+
 
 public abstract class MagicViewHolder {
 
@@ -45,9 +41,11 @@ public abstract class MagicViewHolder {
         public void notifyChange();
     }
 
-
+    public MagicViewHolder(Context context){
+        this(context,0);
+    }
     /**
-     * @param context        The context.. The activity..
+     * @param context        The context
      * @param layoutResource The xml view resource
      **/
     public MagicViewHolder(Context context, int layoutResource) {
@@ -119,53 +117,5 @@ public abstract class MagicViewHolder {
     public abstract MagicViewHolder getInstance();
 
 
-    /**
-     * @return a new instance of an array adapter for this view;
-     * **/
-    public MagicViewArrayAdapter getAdapterInstance(){
-       return new MagicViewArrayAdapter(getContext(),this);
-    }
-
-    /**
-     *
-     * @return
-     */
-    public MagicRecyclerViewViewHolder getMagicRecycleViewHolder(){
-        return new MagicRecyclerViewViewHolder(getInstance().getView(),this);
-    }
-
-    /**
-     *
-     * @param items
-     * @return
-     */
-    public MagicRecyclerViewAdapter getRecycleViewAdapter(List<Object> items){
-        return new MagicRecyclerViewAdapter(this,items);
-    }
-
-    /**
-     *
-     * @param context
-     * @param recyclerView
-     * @param orientation       example LinearLayoutManager.HORIZONTAL
-     */
-    public static void setUpRecycleView(Context context,RecyclerView recyclerView,int orientation){
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(orientation);
-        recyclerView.setLayoutManager(linearLayoutManager );
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
-
-    /**
-     *
-     * @param context
-     * @param recyclerView
-     * @param numberOfColumns
-     */
-    public static void setUpGridRecycleView(Context context,RecyclerView recyclerView,int numberOfColumns){
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(context, numberOfColumns);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
 
 }

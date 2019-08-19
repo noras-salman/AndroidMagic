@@ -6,7 +6,6 @@
 ### How to
     - Create a itemx_layout.xml in res/layout
     - Create a view class extending MagicViewHolder
-    - Create a model class extending MagicViewDataModel 
    
 ### Example
 
@@ -46,7 +45,7 @@ public class TViewParent extends MagicViewHolder {
 
     @Override
     public void buildView(Object object) {
-        String s=((TvMagicViewDataModel)object).tvValue;
+        String s=((String)object).tvValue;
         textView.setText(s);
     }
     
@@ -58,45 +57,64 @@ public class TViewParent extends MagicViewHolder {
 
 ```
 
-Model Class
+
+Your objects
+
 ```
-public class TvMagicViewDataModel extends MagicViewDataModel {
-
-    String tvValue;
-
-    public TvMagicViewDataModel(String tvValue) {
-        this.tvValue = tvValue;
-    }
-}
+ List<String> objects=new ArrayList<String>();
+ objects.add("test");
+ objects.add("test2");
 ```
 
-Usage in an activity,fragment ..etc
+# Create an array adapter for a listView or gridView
 ```
  ListView listView=findViewById(R.id.listView);
- TViewParent tViewParent=new TViewParent(getApplicationContext());
- MagicViewArrayAdapter adapter=tViewParent.getAdapterInstance();
+ MagicViewArrayAdapter adapter=MagicViewFactory.withContext(getApplicationContext())
+                                               .forViewHolder(TViewParent.class)
+                                               .getMagicViewArrayAdapter();
 
  listView.setAdapter(adapter);
- List<MagicViewDataModel> objectList=new ArrayList<MagicViewDataModel>();
- objectList.add(new TvMagicViewDataModel("test1"));
- objectList.add(new TvMagicViewDataModel("test3"));
- adapter.refill(objectList);
+ adapter.refill(objects);
 ```
 
+# Create a recycleViewAdapter for a recycleView 
 ```
-ProductCard productCard=new ProductCard(getContext());
-
-
- RecyclerView recyclerView=root.findViewById(R.id.recyclerView);
- recyclerView.setHasFixedSize(true)
- recyclerView.setAdapter(productCard.getRecycleViewAdapter(objectList));
- 
- //horizontal scroll view 
- MagicViewHolder.setUpRecycleView(getContext(),recyclerView,LinearLayoutManager.HORIZONTAL);
- 
- //or vertical scroll view 
- MagicViewHolder.setUpRecycleView(getContext(),recyclerView,LinearLayoutManager.VERTICAL);
- 
- //or grid with 3 clomuns
- MagicViewHolder.setUpGridRecycleView(getContext(),recyclerView,3);
+MagicRecyclerViewAdapter adapter= 
+                MagicViewFactory.withContext(getApplicationContext())
+                .forViewHolder(TViewParent.class)
+                .getMagicRecyclerViewAdapter();
 ```
+# Use to attach to a recycleView
+
+## Vertical scroll
+```
+RecyclerView recycleView=findViewById(R.id.recycleView);
+        MagicViewFactory.withContext(getApplicationContext())
+                .forViewHolder(TViewParent.class)
+                .prepareRecyclerView(recycleView)
+                .setup()
+                .load(objects);
+```
+
+## Horizontal scroll
+```
+RecyclerView recycleView=findViewById(R.id.recycleView);
+        MagicViewFactory.withContext(getApplicationContext())
+                .forViewHolder(CountryView.class)
+                .prepareRecyclerView(recycleView)
+                .withHorizontalOrientation()
+                .setup()
+                .load(objects);
+```
+
+## Gird
+```
+RecyclerView recycleView=findViewById(R.id.recycleView);
+        int columns=3;
+        MagicViewFactory.withContext(getApplicationContext())
+                .forViewHolder(CountryView.class)
+                .prepareRecyclerView(recycleView)
+                .setupGridRecyclerView(columns)
+                .load(objects);
+```
+
