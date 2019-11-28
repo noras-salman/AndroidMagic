@@ -1,4 +1,4 @@
-package com.nasable.magiclibs.MagicLibs.MagicView;
+package se.mat.matse.ui._holders.MagicView;
 
 import android.content.Context;
 
@@ -18,8 +18,8 @@ public class MagicViewFactory {
     private MagicViewHolder magicViewHolder;
 
 
-    private MagicViewFactory(Context context){
-        this.context=context;
+    private MagicViewFactory(Context context) {
+        this.context = context;
     }
 
     public static MagicViewFactory withContext(Context context) {
@@ -46,12 +46,12 @@ public class MagicViewFactory {
         private MagicRecyclerViewViewHolder magicRecyclerViewViewHolder;
 
         private MagicViewBuilder(MagicViewFactory magicViewFactory) {
-            this.magicViewFactory=magicViewFactory;
+            this.magicViewFactory = magicViewFactory;
             magicRecyclerViewViewHolder = new MagicRecyclerViewViewHolder(magicViewFactory.magicViewHolder);
         }
 
-        public MagicViewArrayAdapter getMagicViewArrayAdapter(){
-            return new MagicViewArrayAdapter(magicViewFactory.context,magicViewFactory.magicViewHolder);
+        public MagicViewArrayAdapter getMagicViewArrayAdapter() {
+            return new MagicViewArrayAdapter(magicViewFactory.context, magicViewFactory.magicViewHolder);
         }
 
         public RecyclerViewPreparer prepareRecyclerView(RecyclerView recyclerView) {
@@ -70,6 +70,7 @@ public class MagicViewFactory {
 
             private int orientation = RecyclerView.VERTICAL;
             private RecyclerView recyclerView;
+            private OnItemClickListener onItemClickListener;
 
             public RecyclerViewPreparer(RecyclerView recyclerView, MagicViewBuilder magicViewBuilder) {
                 this.magicViewBuilder = magicViewBuilder;
@@ -78,9 +79,15 @@ public class MagicViewFactory {
 
             }
 
+            public RecyclerViewPreparer setOnItemClickListener(OnItemClickListener onItemClickListener){
+                this.onItemClickListener=onItemClickListener;
+                return  this;
+            }
+
             public RecyclerAdapterLoader setup() {
                 magicViewBuilder.getMagicRecyclerViewAdapter();
                 if (magicViewBuilder.magicRecyclerViewAdapter != null) {
+                    magicViewBuilder.magicRecyclerViewAdapter.setOnItemClickListener(this.onItemClickListener);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setAdapter(magicViewBuilder.magicRecyclerViewAdapter);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(magicViewBuilder.magicViewFactory.context);
@@ -96,14 +103,19 @@ public class MagicViewFactory {
                 return this;
             }
 
+
+
+
             public RecyclerAdapterLoader setupGridRecyclerView(int numberOfColumns) {
                 magicViewBuilder.getMagicRecyclerViewAdapter();
                 if (magicViewBuilder.magicRecyclerViewAdapter != null) {
+                    magicViewBuilder.magicRecyclerViewAdapter.setOnItemClickListener(this.onItemClickListener);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setAdapter(magicViewBuilder.magicRecyclerViewAdapter);
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(magicViewBuilder.magicViewFactory.context, numberOfColumns);
                     recyclerView.setLayoutManager(gridLayoutManager);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
+
                 }
                 return new RecyclerAdapterLoader(this);
             }
@@ -114,6 +126,7 @@ public class MagicViewFactory {
                 public RecyclerAdapterLoader(RecyclerViewPreparer recyclerViewPreparer) {
                     this.recyclerViewPreparer = recyclerViewPreparer;
                 }
+
 
                 public void load(List<? extends Object> items) {
                     if (recyclerViewPreparer.magicViewBuilder.magicRecyclerViewAdapter != null)

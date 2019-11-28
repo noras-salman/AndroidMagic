@@ -1,19 +1,17 @@
-package com.nasable.magiclibs.MagicLibs.MagicView;
+package se.mat.matse.ui._holders.MagicView;
 
 
 /**
- *  Provides a way to automatically  generate and ArrayAdapter
- *  for a list of objects from a class that extend the
- *  MagicViewDataModel and creates a set of views using
- *  the MagicViewHolder abstract class model.
- *
- *
- * @see MagicViewHolder
- * @see MagicViewDataModel
+ * Provides a way to automatically  generate and ArrayAdapter
+ * for a list of objects from a class that extend the
+ * MagicViewDataModel and creates a set of views using
+ * the MagicViewHolder abstract class model.
  *
  * @author Noras Salman
- * @since 2018-12-04
  * @version 3.0
+ * @see MagicViewHolder
+ * @see MagicViewDataModel
+ * @since 2018-12-04
  **/
 
 
@@ -70,7 +68,7 @@ public class MagicViewArrayAdapter extends ArrayAdapter<Object> {
 
         } else {
             /* Cast the tag to the costume view type you pass in the constructor */
-            viewHolder = magicViewHolder.getClass().cast(convertView.getTag()) ;
+            viewHolder = magicViewHolder.getClass().cast(convertView.getTag());
         }
 
         /* A dataSetOnChangeListener to listen for actions from each item  */

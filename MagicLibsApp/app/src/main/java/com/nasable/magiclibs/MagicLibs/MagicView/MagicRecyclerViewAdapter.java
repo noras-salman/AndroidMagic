@@ -1,5 +1,6 @@
-package com.nasable.magiclibs.MagicLibs.MagicView;
+package se.mat.matse.ui._holders.MagicView;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,15 +12,19 @@ public class MagicRecyclerViewAdapter extends RecyclerView.Adapter<MagicRecycler
 
     private MagicRecyclerViewViewHolder magicRecyclerViewViewHolder;
     private List<? extends Object> items;
-
+    private OnItemClickListener onItemClickListener;
     public MagicRecyclerViewAdapter(MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, List<? extends Object> items) {
         this.magicRecyclerViewViewHolder = magicRecyclerViewViewHolder;
-        this.items=items;
+        this.items = items;
     }
 
     public void setItems(List<? extends Object> items) {
         this.items = items;
         notifyDataSetChanged();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     @Override
@@ -30,9 +35,10 @@ public class MagicRecyclerViewAdapter extends RecyclerView.Adapter<MagicRecycler
 
 
     @Override
-    public void onBindViewHolder(@NonNull MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, int position) {
+    public void onBindViewHolder(@NonNull MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, final int position) {
         /* Call build */
-        magicRecyclerViewViewHolder.build(items.get(position));
+        magicRecyclerViewViewHolder.build(items.get(position),position,this.onItemClickListener);
+
         magicRecyclerViewViewHolder.itemView.setTag(items.get(position));
     }
 

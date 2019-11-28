@@ -1,4 +1,4 @@
-package com.nasable.magiclibs.MagicLibs.MagicView;
+package se.mat.matse.ui._holders.MagicView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,11 +6,11 @@ import android.view.View;
 
 /**
  * Created 2018-12-04
+ *
  * @author Noras Salman
- * @since 0.1
  * @version 3.0
+ * @since 0.1
  **/
-
 
 
 public abstract class MagicViewHolder {
@@ -26,6 +26,9 @@ public abstract class MagicViewHolder {
      * The parent view that is inflated using the xml view
      **/
     private View view;
+    private View.OnClickListener onClickListener;
+
+
 
 
     /**
@@ -41,9 +44,10 @@ public abstract class MagicViewHolder {
         public void notifyChange();
     }
 
-    public MagicViewHolder(Context context){
-        this(context,0);
+    public MagicViewHolder(Context context) {
+        this(context, 0);
     }
+
     /**
      * @param context        The context
      * @param layoutResource The xml view resource
@@ -60,6 +64,16 @@ public abstract class MagicViewHolder {
         bindView(this.view);
     }
 
+    public void setOnClickListener(View.OnClickListener onClickListener){
+
+            this.onClickListener=onClickListener;
+            this.view.setOnClickListener(  this.onClickListener);
+    }
+
+
+    public View.OnClickListener getOnClickListener(){
+        return this.onClickListener;
+    }
     /**
      * Binding the inflated view to the convert view (called in the constructor)
      *
@@ -111,11 +125,12 @@ public abstract class MagicViewHolder {
     }
 
 
-    /** Implement to return the following
+    /**
+     * Implement to return the following
+     *
      * @return new TheView(getContext()); or new TheView(getContext(),resource);
-     * **/
+     **/
     public abstract MagicViewHolder getInstance();
-
 
 
 }
