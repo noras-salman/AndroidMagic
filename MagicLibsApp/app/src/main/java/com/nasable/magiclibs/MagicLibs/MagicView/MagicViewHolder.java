@@ -1,4 +1,4 @@
-package se.mat.matse.ui._holders.MagicView;
+package com.nasable.magiclibs.MagicLibs.MagicView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
