@@ -13,7 +13,7 @@ import android.view.View;
  **/
 
 
-public abstract class MagicViewHolder {
+public abstract class MagicViewHolder<T> {
 
 
     /**

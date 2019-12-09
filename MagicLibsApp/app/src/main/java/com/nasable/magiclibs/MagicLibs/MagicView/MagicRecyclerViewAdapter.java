@@ -6,20 +6,34 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class MagicRecyclerViewAdapter extends RecyclerView.Adapter<MagicRecyclerViewViewHolder> {
+public class MagicRecyclerViewAdapter<T> extends RecyclerView.Adapter<MagicRecyclerViewViewHolder> {
 
     private MagicRecyclerViewViewHolder magicRecyclerViewViewHolder;
-    private List<? extends Object> items;
+    private List<T> items;
     private OnItemClickListener onItemClickListener;
-    public MagicRecyclerViewAdapter(MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, List<? extends Object> items) {
+    public MagicRecyclerViewAdapter(MagicRecyclerViewViewHolder magicRecyclerViewViewHolder, List<T> items) {
         this.magicRecyclerViewViewHolder = magicRecyclerViewViewHolder;
         this.items = items;
     }
 
-    public void setItems(List<? extends Object> items) {
+    public void setItems(List<T> items) {
         this.items = items;
+        notifyDataSetChanged();
+    }
+
+    public void reload(List<T> items){
+        this.items.clear();
+        this.items=items;
+        notifyDataSetChanged();
+
+    }
+
+    public void add(List<T> items){
+        this.items.addAll(items);
         notifyDataSetChanged();
     }
 
